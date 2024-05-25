@@ -1,0 +1,6 @@
+requests
+tkinter
+logging
+concurrent.futures
+threading
+time
