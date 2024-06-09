@@ -1,137 +1,69 @@
-### Overview (English)
+### Overview of Cloudflare DNS Manager
 
-#### Cloudflare Zone Manager
+The Cloudflare DNS Manager is a graphical user interface (GUI) application developed using Python and the Tkinter library. It allows users to manage their DNS records and various Cloudflare settings easily. The application leverages the Cloudflare API to interact with Cloudflare's DNS services and provides features such as backup and restore of DNS records, toggling the "Under Attack Mode", and managing proxy status.
 
-Cloudflare Zone Manager is a Python-based application designed to manage Cloudflare zones efficiently. This repository provides two implementations: one using the Flet framework and another using Tkinter for the graphical user interface (GUI).
+#### Key Features
 
-#### Features
+1. **DNS Record Management**:
+   - View DNS records for multiple zones.
+   - Update IP addresses for DNS records.
+   - Toggle the proxy status for individual DNS records.
+   - Support for various DNS record types (A, AAAA, CNAME, MX, TXT).
 
-- **Retrieve Zones**: Fetch all zones from your Cloudflare account.
-- **Dynamic Timeout**: Adjust request timeout dynamically based on average response times.
-- **Security Level Management**: View and update the security levels of your zones.
-- **Multi-threaded Requests**: Uses concurrent requests to improve performance.
-- **User-friendly Interface**: Choose between Flet and Tkinter for the GUI.
+2. **Zone Management**:
+   - View a list of all zones associated with the Cloudflare account.
+   - Display detailed information about each zone, including plan type, SSL status, cache level, and whether development mode is enabled.
+   - Toggle "Under Attack Mode" for one or more zones.
 
-#### Installation
+3. **Backup and Restore**:
+   - Backup DNS records to a JSON file.
+   - Restore DNS records from a backup file, allowing for easy recovery and management of DNS settings.
 
-1. **Clone the repository:**
+#### User Interface
 
-    ```bash
-    git clone https://github.com/Scary-technologies/Cloudflare-Zone-Manager.git
-    cd Cloudflare-Zone-Manager
-    ```
+The user interface is designed with ease of use in mind, providing a clear layout for managing DNS records and Cloudflare settings. The main components include:
 
-2. **Install the required packages:**
+- **Header and Description**:
+  - A header displaying the application name.
+  - A brief description of the application’s functionality.
 
-    For Flet UI:
-    ```bash
-    pip install -r requirements-Flet-UI.txt
-    ```
+- **IP Management Frame**:
+  - An input field for entering a new IP address.
+  - A dropdown menu to select the DNS record type.
+  - Buttons to apply the new IP to all selected records, restore records from backup, and save backups to a file.
 
-    For Tkinter UI:
-    ```bash
-    pip install -r requirements-tkinter.txt
-    ```
+- **Zone and DNS Record Tables**:
+  - A tree view for displaying zone information, including zone ID, zone name, plan, under attack status, development mode, SSL status, and cache level.
+  - A tree view for displaying DNS records, including record ID, name, type, content, and proxy status.
 
-#### Usage
+- **Action Buttons**:
+  - Buttons to enable or disable "Under Attack Mode".
+  - Buttons to enable or disable the proxy for selected DNS records.
+  - A refresh button to update the zone list.
 
-1. **Run the application:**
+#### How to Use
 
-    For Flet UI:
-    ```bash
-    python Main-With-Flet.py
-    ```
+1. **Initialization**:
+   - Ensure the `token.txt` file contains your Cloudflare API token.
 
-    For Tkinter UI:
-    ```bash
-    python Main-With-tkinter.py
-    ```
+2. **Viewing and Managing Zones**:
+   - The application will automatically fetch and display the list of zones upon startup.
+   - Select a zone from the list to view its DNS records.
 
-2. **Enter your Cloudflare API Token in the dialog box that appears.**
+3. **Updating DNS Records**:
+   - Enter a new IP address and select the DNS record type.
+   - Click "Apply New IP to All Records" to update the IP for all selected records of the specified type.
 
-3. **Use the interface to:**
-    - Update the list of zones.
-    - Set security levels to "Under Attack" or default security.
+4. **Backup and Restore**:
+   - Click "Save Backup to File" to backup current DNS records to a JSON file.
+   - Click "Restore Records from Backup" to load DNS records from a backup file.
 
-#### Code Overview
+5. **Toggling "Under Attack Mode"**:
+   - Select one or more zones.
+   - Click "Enable Under Attack Mode" or "Disable Under Attack Mode" to toggle the status.
 
-- **Logging**: Configured to display detailed debug information and errors.
-- **API Interaction**: Functions for retrieving zones and updating security levels using Cloudflare API.
-- **Dynamic Timeout**: Calculates optimal timeout based on past request times.
-- **Multi-threading**: Improves performance by handling multiple requests concurrently.
-- **GUI Options**: Provides a modern, interactive GUI using either Flet or Tkinter.
+6. **Managing Proxy Status**:
+   - Select one or more DNS records.
+   - Click "Enable Proxy" or "Disable Proxy" to toggle the proxy status for the selected records.
 
-#### Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request with your improvements.
-
-#### License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-### Overview (فارسی)
-
-#### Cloudflare Zone Manager
-
-Cloudflare Zone Manager یک برنامه مبتنی بر پایتون است که برای مدیریت ناحیه‌های Cloudflare طراحی شده است. این مخزن دو پیاده‌سازی ارائه می‌دهد: یکی با استفاده از فریمورک Flet و دیگری با استفاده از Tkinter برای رابط کاربری گرافیکی (GUI).
-
-#### ویژگی‌ها
-
-- **بازیابی ناحیه‌ها**: تمام ناحیه‌های حساب Cloudflare شما را بازیابی می‌کند.
-- **زمان‌بندی دینامیک**: زمان انتظار درخواست‌ها را بر اساس میانگین زمان‌های پاسخ تنظیم می‌کند.
-- **مدیریت سطح امنیتی**: مشاهده و به‌روزرسانی سطوح امنیتی ناحیه‌های شما.
-- **درخواست‌های چند رشته‌ای**: از درخواست‌های موازی برای بهبود عملکرد استفاده می‌کند.
-- **رابط کاربری کاربر پسند**: انتخاب بین Flet و Tkinter برای GUI.
-
-#### نصب
-
-1. **کلون کردن مخزن:**
-
-    ```bash
-    git clone https://github.com/Scary-technologies/Cloudflare-Zone-Manager.git
-    cd Cloudflare-Zone-Manager
-    ```
-
-2. **نصب بسته‌های مورد نیاز:**
-
-    برای رابط کاربری Flet:
-    ```bash
-    pip install -r requirements-Flet-UI.txt
-    ```
-
-    برای رابط کاربری Tkinter:
-    ```bash
-    pip install -r requirements-tkinter.txt
-    ```
-
-#### استفاده
-
-1. **اجرای برنامه:**
-
-    برای رابط کاربری Flet:
-    ```bash
-    python Main-With-Flet.py
-    ```
-
-    برای رابط کاربری Tkinter:
-    ```bash
-    python Main-With-tkinter.py
-    ```
-
-2. **توکن API Cloudflare خود را در جعبه دیالوگ که ظاهر می‌شود وارد کنید.**
-
-3. **استفاده از رابط کاربری برای:**
-    - به‌روزرسانی لیست ناحیه‌ها.
-    - تنظیم سطوح امنیتی به "Under Attack" یا امنیت پیش‌فرض.
-
-#### نمای کلی کد
-
-- **لاگ‌گذاری**: پیکربندی شده برای نمایش اطلاعات دقیق و خطاها.
-- **تعامل با API**: توابع برای بازیابی ناحیه‌ها و به‌روزرسانی سطوح امنیتی با استفاده از API Cloudflare.
-- **زمان‌بندی دینامیک**: محاسبه زمان انتظار بهینه بر اساس زمان‌های درخواست گذشته.
-- **چند رشته‌ای**: بهبود عملکرد با مدیریت چندین درخواست به صورت همزمان.
-- **گزینه‌های GUI**: ارائه یک رابط کاربری مدرن و تعاملی با استفاده از Flet یا Tkinter.
-
-#### مشارکت
-
-مشارکت‌ها استقبال می‌شود! لطفاً یک issue باز کنید یا یک pull request با بهبودهای خود ارسال کنید.
+The Cloudflare DNS Manager simplifies DNS management tasks and provides a robust set of tools for managing and securing your domains through the Cloudflare API.
